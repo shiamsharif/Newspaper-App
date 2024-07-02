@@ -9,17 +9,17 @@
 
     Hi {{ user.username }}
     <p>
-        <form method="post" action="{% url 'admin:logout' %}">
+        <form method="post" action="{% url 'logout' %}">
         {% csrf_token %}
-        <button type="submit">Log out</button>
+        <button class="btn btn-danger" type="submit">Log out</button>
         </form>
     </p>
 
 {% else %}
 
     <p>You are not logged in</p>
-    <a href="{% url 'login' %}">Log In</a> |
-    <a href="{% url 'signup' %}">Sign Up</a>
+    <a href="{% url 'login' %}" class="btn btn-info">Log In</a> |
+    <a href="{% url 'signup' %}" class="btn btn-info">Sign Up</a>
 
 {% endif %}
 
