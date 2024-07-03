@@ -4,6 +4,19 @@
 
 
 {% block content %}
+    <div class="jumbotron">
+        <h1 class="display-4">Newspaper App</h1>
+        <p class="lead">A newspaper website built with Django <a href="https://www.linkedin.com/in/shiam-sharif-736339251/" target="_blank" style="color: #402E7A">@ShiamSharif</a></p>
+        <p class="lead">
+            <a class="btn btn-primary btn-lg" href="{% url "article_list" %}" role="button">View All Articles</a>
+        </p>
+    </div>
+{% endblock content %}
+
+
+{% comment %}
+
+======================================================================
 
 {% if user.is_authenticated %}
 
@@ -21,6 +34,8 @@
     <a href="{% url 'login' %}" class="btn btn-info">Log In</a> |
     <a href="{% url 'signup' %}" class="btn btn-info">Sign Up</a>
 
-{% endif %}
+{% endif %} 
 
-{% endblock content %}0
+=======================================================================
+
+{% endcomment %}
