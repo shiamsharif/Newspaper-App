@@ -16,7 +16,7 @@
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
       </button>
-     
+      {% comment %} <a class="nav-link" href="{% url 'logout' %}" style="color: #C93838" >Logout</a> {% endcomment %}
       <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav ml-auto">        
               {% if user.is_authenticated %}
@@ -24,7 +24,10 @@
                       <a class="nav-link" href="#" style="color: #43AB92">Welcome, {{ user.username }}</a>
                   </li>
                   <li class="nav-item">
-                      <a class="nav-link" href="{% url 'logout' %}" style="color: #C93838" >Logout</a>
+                    <form action="{% url 'logout' %}" method="post">  
+                      {% csrf_token %}  
+                      <button class="btn btn-danger" type="submit">Log Out</button>
+                    </form>
                   </li>
                   <li class="nav-item">
                       <a class="nav-link" href="{% url 'password_change' %}" style="color: #F75F00" >Change Password</a>
