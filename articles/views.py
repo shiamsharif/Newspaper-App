@@ -12,7 +12,7 @@ class ArticleListView(ListView):
 
 class ArticleDetailView(DetailView):
     model = Article
-    template_name = 'article_Detail.html'
+    template_name = 'article_detail.html'
 
 
 class ArticleUpdateView(UpdateView):
