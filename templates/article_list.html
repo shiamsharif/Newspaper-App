@@ -11,12 +11,18 @@
                 <span class="text-muted">by {{ article.author }} | {{ article.date }}</span>
             </div>
             <div class="card-body" style="background-color: #FDFFE2;">
-                {{ article.body }}
-            </div>
-            <div class="card-footer text-center text-muted" >
+                <p>{{ article.body }}</p>
                 <a class="btn btn-info mx-4 px-5" href="{% url "article_edit" article.pk %}">Edit</a> 
                 <span style="color: #5A72A0;">|</span> 
                 <a class="btn btn-danger mx-4 px-5" href="{% url "article_delete" article.pk %}">Delete</a>
+            </div>
+            <div class="card-footer" style="background-color: #DAFFFB;">
+                {% for comment in article.comments.all %}
+                <p>
+                    <span class="font-weight-blod">{{ comment.author }} &middot;</span>
+                    {{ comment }}
+                </p>
+                {% endfor %}
             </div>
         </div>
         <br />
